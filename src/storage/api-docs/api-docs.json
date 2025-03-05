@@ -1,0 +1,89 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Laravel 11 Authentication",
+        "description": "API Documentation for Auto Shine Service",
+        "contact": {
+            "email": "sachini@thesanmark.com"
+        },
+        "version": "0.0.1"
+    },
+    "paths": {
+        "/api/services/{id}/progress": {
+            "get": {
+                "tags": [
+                    "Service"
+                ],
+                "summary": "Get service progress and status",
+                "operationId": "7e76553193e981c224e5082a2bcfa499",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Service progress and status"
+                    },
+                    "404": {
+                        "description": "Service not found"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/cars/{registration_number}/services": {
+            "get": {
+                "tags": [
+                    "Service"
+                ],
+                "summary": "Get all service records by car registration number",
+                "operationId": "d891f3ca37993576981eb5879f1042e6",
+                "parameters": [
+                    {
+                        "name": "registration_number",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of services"
+                    },
+                    "404": {
+                        "description": "Car or services not found"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Service",
+            "description": "Service"
+        }
+    ]
+}
